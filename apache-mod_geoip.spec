@@ -33,7 +33,7 @@ license.
 %setup -q -n mod_geoip2_%{version}
 
 %build
-%{apxs} -Wc,"%{rpmcflags}" -Wl,-lGeoIP -c mod_geoip.c
+%{apxs} -Wc,"%{rpmcppflags} %{rpmcflags}" -Wl,"-lGeoIP %{rpmldflags}" -c mod_geoip.c
 
 %install
 rm -rf $RPM_BUILD_ROOT
