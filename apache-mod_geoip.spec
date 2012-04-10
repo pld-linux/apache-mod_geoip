@@ -10,12 +10,14 @@ URL:		https://www.maxmind.com/app/mod_geoip
 Source0:	http://www.maxmind.com/download/geoip/api/mod_geoip2/mod_%{mod_name}2_%{version}.tar.gz
 # Source0-md5:	76514ad0e8adb8cd8231c5e3646d03fd
 Source1:	apache.conf
-BuildRequires:	GeoIP-devel
 BuildRequires:	%{apxs}
+BuildRequires:	GeoIP-devel
 BuildRequires:	apache-devel >= 2.2
 BuildRequires:	rpmbuild(macros) >= 1.268
-Requires:	GeoIP
 Requires:	apache(modules-api) = %apache_modules_api
+Suggests:	GeoIP-db-City
+Suggests:	GeoIP-db-Country
+Suggests:	GeoIP-db-IPASNum
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_pkglibdir	%(%{apxs} -q LIBEXECDIR 2>/dev/null)
