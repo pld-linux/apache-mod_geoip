@@ -11,7 +11,7 @@ Source0:	http://www.maxmind.com/download/geoip/api/mod_geoip2/mod_%{mod_name}2_%
 # Source0-md5:	76514ad0e8adb8cd8231c5e3646d03fd
 Source1:	apache.conf
 BuildRequires:	%{apxs}
-BuildRequires:	GeoIP-devel
+BuildRequires:	GeoIP-devel >= 1.4.8
 BuildRequires:	apache-devel >= 2.2
 BuildRequires:	rpmbuild(macros) >= 1.268
 Requires:	apache(modules-api) = %apache_modules_api
