@@ -1,15 +1,16 @@
 %define		mod_name	geoip
-%define 	apxs		%{_sbindir}/apxs
+%define		pxs		%{_sbindir}/apxs
 Summary:	GeoIP module for the Apache HTTP Server
 Name:		apache-mod_%{mod_name}
 Version:	1.2.7
-Release:	1
+Release:	2
 License:	ASL 1.1
 Group:		Daemons
 URL:		https://www.maxmind.com/app/mod_geoip
 Source0:	http://www.maxmind.com/download/geoip/api/mod_geoip2/mod_%{mod_name}2_%{version}.tar.gz
 # Source0-md5:	76514ad0e8adb8cd8231c5e3646d03fd
 Source1:	apache.conf
+Patch0:		mod_geoip-apache24.patch
 BuildRequires:	%{apxs}
 BuildRequires:	GeoIP-devel >= 1.4.8
 BuildRequires:	apache-devel >= 2.2
@@ -31,6 +32,7 @@ license.
 
 %prep
 %setup -q -n mod_geoip2_%{version}
+%patch0 -p0
 
 %build
 %{apxs} -Wc,"%{rpmcppflags} %{rpmcflags}" -Wl,"-lGeoIP %{rpmldflags}" -c mod_geoip.c
