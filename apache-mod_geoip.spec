@@ -1,9 +1,9 @@
 %define		mod_name	geoip
-%define		pxs		%{_sbindir}/apxs
+%define		apxs		%{_sbindir}/apxs
 Summary:	GeoIP module for the Apache HTTP Server
 Name:		apache-mod_%{mod_name}
 Version:	1.2.7
-Release:	2
+Release:	3
 License:	ASL 1.1
 Group:		Daemons
 URL:		https://www.maxmind.com/app/mod_geoip
