@@ -32,7 +32,7 @@ license.
 
 %prep
 %setup -q -n mod_geoip2_%{version}
-%patch0 -p0
+%patch -P0 -p0
 
 %build
 %{apxs} -Wc,"%{rpmcppflags} %{rpmcflags}" -Wl,"-lGeoIP %{rpmldflags}" -c mod_geoip.c
